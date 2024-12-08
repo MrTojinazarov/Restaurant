@@ -7,8 +7,6 @@ use App\Models\Food;
 use Livewire\Component;
 
 class OrderComponent extends Component
-
-
 {
     public $categories;
     public $foods;

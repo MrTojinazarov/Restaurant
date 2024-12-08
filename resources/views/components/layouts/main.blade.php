@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     @livewireStyles
-    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body>
@@ -17,9 +17,9 @@
             <a class="navbar-brand" href="">Taste.<span>it</span></a>
             <div>
                 <ul class="navbar-nav">
-                    <li class="nav-link.active"><a href="" class="nav-link">Home</a></li>
+                    <li class="nav-link.active"><a href="{{route('order.home')}}" wire:navigate class="nav-link">Home</a></li>
                     @foreach ($categories as $category)
-                        <li><a href="" class="nav-link">{{ $category->name }}</a></li>
+                        <li><a href="{{route('category.foods', $category->id)}}" wire:navigate class="nav-link">{{ $category->name }}</a></li>
                     @endforeach
                 </ul>
             </div>
@@ -33,14 +33,7 @@
     </div>
 
     @livewireScripts
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.stellar.min.js') }}"></script>
-    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('js/scrollax.min.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>
