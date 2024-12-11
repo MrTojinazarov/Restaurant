@@ -4,7 +4,7 @@
             <div class="row pt-3">
                 <div class="col-12">
                     <div class="ms-2 me-2">
-                        <h2>Catyegories</h2>
+                        <h2>Sections</h2>
                         <button class="btn btn-primary mt-2" wire:click="CreateModal"
                             style="width: 120px; height: auto;font-size: 20px; border-radius: 10px;">
                             {{ $activeCreate ? 'Cancel' : 'Create' }}
@@ -41,9 +41,9 @@
                                             <th style="width: 20%">Options</th>
                                         </tr>
                                     </thead>
-                                    <tbody wire:sortable="updateCategoryTr">
+                                    <tbody wire:sortable="updateSectionTr">
                                         @foreach ($models as $model)
-                                            @if ($editFormCategory != $model->id)
+                                            @if ($editFormSection != $model->id)
                                                 <tr draggable="true" wire:sortable.item="{{ $model->id }}">
                                                     <th>{{ $model->id }}</th>
                                                     <td wire:click="editForm({{ $model->id }})"
@@ -72,7 +72,7 @@
                                                         </a>
                                                     </td>
                                                 </tr>
-                                            @elseif ($editFormCategory == $model->id)
+                                            @elseif ($editFormSection == $model->id)
                                                 <tr>
                                                     <th>{{ $model->id }}</th>
                                                     <td>
@@ -99,6 +99,7 @@
                             </div>
                         </div>
                     @endif
+
                 </div>
             </div>
         </div>

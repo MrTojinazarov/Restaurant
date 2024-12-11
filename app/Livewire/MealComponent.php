@@ -8,7 +8,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 
-class FoodComponent extends Component
+class MealComponent extends Component
 {
     use WithPagination;
     use WithFileUploads;

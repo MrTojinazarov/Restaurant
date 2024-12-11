@@ -65,22 +65,30 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/order-items" wire:navigate class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Order Board
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/section" wire:navigate class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Section
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
         </aside>
 
-        <div class="content-wrapper">
-            <section class="content">
-                <div class="container-fluid">
-                    <div class="row pt-3">
-                        <div class="col-12">
-                            {{ $slot }}
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+
+        {{ $slot }}
+  
 
     </div>
 
@@ -106,42 +114,16 @@
     <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-    {{-- <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.show-more').forEach(function(link) {
-                link.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    const fullText = this.getAttribute('data-full-text');
-                    this.previousElementSibling.textContent = fullText;
-                    this.style.display = 'none';
-                    this.nextElementSibling.style.display = 'inline';
-                });
-            });
-
-            document.querySelectorAll('.show-less').forEach(function(link) {
-                link.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    const previewText = this.previousElementSibling.previousElementSibling
-                        .textContent.slice(0, 100) + '...';
-                    this.previousElementSibling.previousElementSibling.textContent = previewText;
-                    this.style.display = 'none';
-                    this.previousElementSibling.style.display = 'inline';
-                });
-            });
-        });
-    </script>
     <script>
-        function addVariant() {
-            const container = document.getElementById('variant-container');
-            const input = document.createElement('input');
-            input.type = 'text';
-            input.name = 'variants[]';
-            input.className = 'form-control mb-2';
-            input.placeholder = 'Variant nomini kiriting';
-            input.required = true;
-            container.appendChild(input);
+        function toggleOrder(orderId) {
+            const orderBody = document.getElementById(`order-${orderId}`);
+            if (orderBody.style.display === "none" || orderBody.style.display === "") {
+                orderBody.style.display = "block";
+            } else {
+                orderBody.style.display = "none";
+            }
         }
-    </script> --}}
+    </script>
 </body>
 
 </html>
