@@ -16,13 +16,11 @@ class OrderComponent extends Component
     public function mount()
     {
         $this->all();
-        // Session::forget('cart');
     }
 
     public function all()
     {
         $this->categories = Category::orderBy('sort', 'ASC')->get();
-        $this->cartItemsCount = $this->getCartItemsCount();
         $this->foods = Food::all();
 
         return [$this->categories, $this->foods];
@@ -44,15 +42,9 @@ class OrderComponent extends Component
         $this->cartItemsCount = $this->getCartItemsCount();
     }
     
-    private function getCartItemsCount()
-    {
-        $cart = Session::get('cart', []);
-        return count($cart); 
-    }
 
     public function render()
     {
-        // dd($this->cartItemsCount);
         return view('livewire.order')->layout('components.layouts.main', [
             'categories' => $this->categories,
             'cartItemsCount' => $this->cartItemsCount,

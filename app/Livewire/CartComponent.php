@@ -58,7 +58,6 @@ class CartComponent extends Component
         ]);
     
         $cartItems = session()->get('cart', []); 
-        // dd($cartItems);
         foreach ($cartItems as $item) {
             OrderItems::create([
                 'order_id' => $order->id,

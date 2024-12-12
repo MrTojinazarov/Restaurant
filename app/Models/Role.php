@@ -4,15 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Section extends Model
+class Role extends Model
 {
     protected $fillable = ([
         'name',
-        'sort',
+        'sort'
     ]);
 
-    public function employees()
+    public function user()
     {
-        return $this->hasMany(Employee::class);
+        return $this->hasMany(User::class);
     }
 }

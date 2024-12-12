@@ -2,11 +2,11 @@
 
 namespace App\Livewire;
 
-use App\Models\Category;
+use App\Models\Role;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class CategoryComponent extends Component
+class RoleComponent extends Component
 {
 
     use WithPagination;
@@ -25,13 +25,13 @@ class CategoryComponent extends Component
 
     public function all()
     {
-        $this->models = Category::orderBy('sort', 'asc')->get();
+        $this->models = Role::orderBy('sort', 'asc')->get();
         return $this->models;
     }
 
     public function render()
     {
-        return view('livewire.category');
+        return view('livewire.role');
     }
     
     public function CreateModal()
@@ -42,10 +42,10 @@ class CategoryComponent extends Component
     public function store()
     {
 
-        $count = Category::all()->count();
+        $count = Role::all()->count();
         
         if(!empty($this->name)){
-            Category::create([
+            Role::create([
                 'name' => $this->name,
                 'sort' => ($count+1),
             ]);
@@ -55,13 +55,13 @@ class CategoryComponent extends Component
         $this->all();
     }
 
-    public function delete(Category $category)
+    public function delete(Role $category)
     {
         $category->delete();
         $this->all();
     }
 
-    public function editForm(Category $category)
+    public function editForm(Role $category)
     {
         $this->editFormCategory = $category->id;
         $this->editName = $category->name;
@@ -70,7 +70,7 @@ class CategoryComponent extends Component
     public function update()
     {
 
-        $category = Category::findOrFail($this->editFormCategory);
+        $category = Role::findOrFail($this->editFormCategory);
         $category->update([
             'name' => $this->editName,
         ]);
@@ -83,8 +83,8 @@ class CategoryComponent extends Component
     {
         foreach ($updateCategoryIds as $key)
         {
-            Category::where('id', $key['value'])->update((['sort' => $key['order']]));
+            Role::where('id', $key['value'])->update((['sort' => $key['order']]));
         }
-        $this->models = Category::orderBy('sort', 'asc')->paginate(10);
+        $this->models = Role::orderBy('sort', 'asc')->paginate(10);
     }
 }

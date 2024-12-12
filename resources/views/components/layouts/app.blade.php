@@ -29,6 +29,17 @@
                             class="fas fa-bars"></i></a>
                 </li>
             </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                        @csrf
+                        <button type="submit" class="nav-link btn btn-link">
+                            <p>Logout</p>
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        
         </nav>
 
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -78,6 +89,22 @@
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Section
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/roles" wire:navigate class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Roles
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/users" wire:navigate class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Users
                                 </p>
                             </a>
                         </li>
