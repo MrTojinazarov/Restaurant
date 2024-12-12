@@ -29,6 +29,7 @@ use App\Http\Middleware\CheckUserRole;
 use App\Livewire\AdminComponent;
 use App\Livewire\CartComponent;
 use App\Livewire\CategoryComponent;
+use App\Livewire\EmployeeComponent;
 use App\Livewire\MealComponent;
 use App\Livewire\OrderComponent;
 use App\Livewire\OrderItemsComponent;
@@ -46,11 +47,12 @@ Route::get('/', AdminComponent::class)->name('main.page')->middleware(['auth', C
 
 Route::middleware(['auth', CheckUserRole::class . ':admin'])->group(function () {
     Route::get('/roles', RoleComponent::class);
-    Route::get('/users', UserComponent::class);
     Route::get('/section', SectionComponent::class);
+    Route::get('/employee', EmployeeComponent::class)->name('employee.page');
 });
 
 Route::middleware(['auth', CheckUserRole::class . ':manager,admin'])->group(function () {
+    Route::get('/users', UserComponent::class);
     Route::get('/category', CategoryComponent::class);
     Route::get('/parametr/{categoryId}', ParametrComponent::class)->name('category.foods');
 });

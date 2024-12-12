@@ -18,6 +18,7 @@ class Employee extends Model
         'workhours',
         'start_time',
         'end_time',
+        'time',
     ];
 
 

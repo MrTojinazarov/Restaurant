@@ -12,13 +12,14 @@ return new class extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->foreignId('section_id')->constrained('section')->cascadeOnDelete();
+            $table->foreignId('section_id')->constrained('sections')->cascadeOnDelete();
             $table->string('salary_type');
             $table->integer('salary');
-            $table->decimal('bonus', 5, 3);
+            $table->decimal('bonus', 5, 3)->nullable();
             $table->integer('workhours');
-            $table->datetime('start_time');
-            $table->datetime('end_time');
+            $table->time('start_time');
+            $table->time('end_time');
+            $table->decimal('time', 5, 2);
             $table->timestamps();
         });
     }
