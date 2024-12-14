@@ -32,4 +32,9 @@ class Employee extends Model
     {
         return $this->belongsTo(Section::class);
     }
+
+    public function attendence()
+    {
+        return $this->hasMany(Attendence::class);
+    }
 }

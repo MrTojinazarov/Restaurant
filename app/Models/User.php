@@ -25,8 +25,13 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
-    public function employees()
+    public function employee()
     {
-        return $this->hasMany(Employee::class);
+        return $this->hasOne(Employee::class);
+    }
+
+    public function attendence()
+    {
+        return $this->hasMany(Attendence::class);
     }
 }

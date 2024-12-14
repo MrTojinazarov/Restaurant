@@ -116,6 +116,22 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/attendence" wire:navigate class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Attendence
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/login" wire:navigate class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Login
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
